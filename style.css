@@ -11,18 +11,19 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Adicionado */
+  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
 html, body {
-  overflow-x: hidden; /* Adicionado */
+  width: 100%;
+  overflow-x: hidden; /* Garantir que o overflow seja escondido */
 }
 
 main{
   padding: 0;
-  width: 100%; /* Alterado de 2150px para 100% */
-  max-width: 2150px; /* Para manter o limite de largura se necessário */
+  width: 100%;
+  max-width: 100%; /* Garantir que a largura máxima seja 100% */
   height: 100%;
   background: var(--main-background);
 }
@@ -270,7 +271,7 @@ h3{
   padding:10px;
   text-align:center;
   font-size:1.2rem;
-  font-family: var(--main-font-family);
+  font-family: var (--main-font-family);
 }
 
 /*────────────────── 
@@ -289,8 +290,8 @@ footer {
   line-height: 40px;
   text-align: center;
   height: 110%;
-  width: 100%; /* Alterado de 2150px para 100% */
-  max-width: 2150px; /* Adicionado */
+  width: 100%; 
+  max-width: 2150px;
 }
 
 .copyright a{
@@ -388,7 +389,6 @@ hr {
 }
 
 @media only screen and (max-width: 500px) {
-
   #home, #projects, #contact{
     overflow-x: hidden;
   }
@@ -433,4 +433,3 @@ hr {
 
 .nav-active{
   transform:translatex(0%);
-}
