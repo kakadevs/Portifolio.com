@@ -14,11 +14,20 @@
   scroll-behavior: smooth;
 }
 
+html {
+
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #273946;
+
+}
+
 main{
   padding: 0;
-  width: 2150px;
+  width: 100%;
   height: 100%;
-  background: var(--main-background);
+  background-color: #273946;
 }
 
 /*────────────────── 
@@ -435,4 +444,4 @@ hr {
 
 .nav-active{
   transform:translatex(0%);
-}
+}}
