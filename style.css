@@ -17,15 +17,13 @@
 html {
 
     padding: 0;
-    width: 100%;
-    height: 100%;
     background-color: #273946;
 
 }
 
 main{
   padding: 0;
-  width: 100%;
+  width: 2150px;
   height: 100%;
   background-color: #273946;
 }
@@ -444,4 +442,4 @@ hr {
 
 .nav-active{
   transform:translatex(0%);
-}}
+}
