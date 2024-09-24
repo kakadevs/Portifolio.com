@@ -4,19 +4,25 @@
   --main-background: #273946;
   --main-fonts-color: #ffffff;
   --main-decor-color:#89aac0;
-    --main-header-background:#324d5f;
+  --main-header-background:#324d5f;
   --main-font-family: 'Poppins', sans-serif;
 }
 
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box; /* Adicionado */
   scroll-behavior: smooth;
+}
+
+html, body {
+  overflow-x: hidden; /* Adicionado */
 }
 
 main{
   padding: 0;
-  width: 2150px;
+  width: 100%; /* Alterado de 2150px para 100% */
+  max-width: 2150px; /* Para manter o limite de largura se necessário */
   height: 100%;
   background: var(--main-background);
 }
@@ -30,15 +36,15 @@ header{
   width: 100%;
   height: 70px;
   display: flex;
-    align-items: center; 
+  align-items: center; 
   justify-content: space-around; 
-    background: transparent;
+  background: transparent;
   position: fixed;
   top: 0;
   transition: 0.3s;
   z-index: 5;
-
 }
+
 .nav-show{
   opacity: 0;
 }
@@ -46,9 +52,7 @@ header{
 header:hover{
   opacity: 1;
   background: var(--main-header-background);
-
 }
-
 
 .logo img{
   padding-top: 5px;
@@ -78,7 +82,7 @@ a.nav-link{
 
 .nav-link:hover {
   color: #000000;
-    background: var(--main-decor-color);
+  background: var(--main-decor-color);
 }
 
 /*──────────────────
@@ -96,29 +100,29 @@ a.nav-link{
 }
 
 #home .filter{
-    width: 100%;
+  width: 100%;
   height: 100%;
-    margin: 100px;
+  margin: 100px;
   background-size: cover;
   background-position:center;
-    position: absolute;
-    top: 0px;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  position: absolute;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
   opacity:.10;
 }  
 
 .intro {
   text-align:center;
-    color: var(--main-fonts-color);
+  color: var(--main-fonts-color);
   z-index: 1;
   margin: auto;
   padding: 20px;
 }
 
-.intro  p{
-    margin: 5px;
+.intro p{
+  margin: 5px;
   font-size:1.2rem;
   font-family: var(--main-font-family);
   text-align:center;
@@ -126,33 +130,29 @@ a.nav-link{
 
 h3{
   padding-bottom: 15px;
-    letter-spacing: normal;
-    font-family: var(--main-font-family);
+  letter-spacing: normal;
+  font-family: var(--main-font-family);
   font-style: normal;
-  font-size: 60px;
-    font-weight: bold;
+  font-weight: bold;
   font-size: 40px;
-    font-weight: bold;
-    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-    background-size: 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: rainbow 5s ease-in-out infinite;
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 5s ease-in-out infinite;
 }
 
 @keyframes rainbow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-
-
 
 /*──────────────────
     social media
@@ -161,16 +161,15 @@ h3{
 .social-media{
   padding: 10px;
   display: flex;
-  position: center;
-    align-items: space-around;
+  align-items: space-around;
   justify-content:center;
 }
 
 .social-media a {
-    margin: 10px;
-    font-size: 2rem;
-    text-align:center;
-    display: inline-block;
+  margin: 10px;
+  font-size: 2rem;
+  text-align:center;
+  display: inline-block;
   color: var(--main-fonts-color);
 }
 
@@ -178,7 +177,7 @@ h3{
   cursor: pointer;
 }
 
-.social-media  a:hover {
+.social-media a:hover {
   color: var(--main-decor-color);
   text-shadow: 0 0 50px var(--main-decor-color);
 }
@@ -189,16 +188,16 @@ h3{
 
 #projects{
   margin-top:100px;
-    height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-    justify-content: center;
+  justify-content: center;
   text-align:center;
   color: var(--main-fonts-color);
 }
 #projects h3{
-    padding-top: 70px;
+  padding-top: 70px;
 }
 #projects p{
   font-family: var(--main-font-family);
@@ -209,8 +208,8 @@ h3{
 .work{
   display: flex; 
   flex: 1;
-    flex-wrap: wrap;
-    justify-content:center;
+  flex-wrap: wrap;
+  justify-content:center;
   align-items: center;
   padding: 20px;
 }
@@ -222,7 +221,7 @@ h3{
   width: 200px;
   height:250px;
   border-radius:12px;
-    background:var(--main-decor-color);
+  background:var(--main-decor-color);
 }
 
 .card img{
@@ -245,7 +244,7 @@ h3{
 }
 
 .card .work-content:hover{
-    color:#202020;
+  color:#202020;
 }
 
 .card:hover{
@@ -281,7 +280,7 @@ h3{
 footer {
   width: 100%;
   height: 100%;
-    background-color: var(--main-header-background);
+  background-color: var(--main-header-background);
 }
 
 .copyright {
@@ -289,16 +288,16 @@ footer {
   font-size: 1.2rem;
   line-height: 40px;
   text-align: center;
-
   height: 110%;
-  width: 2150px;
+  width: 100%; /* Alterado de 2150px para 100% */
+  max-width: 2150px; /* Adicionado */
 }
 
 .copyright a{
   color: #ffffff;
   font-size: 1rem;
   letter-spacing: 1px;
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .copyright a:hover{
@@ -308,21 +307,21 @@ footer {
 /*──── hr ─────*/
 
 hr {
-    background: var(--main-decor-color);
+  background: var(--main-decor-color);
   margin: 2px;
   height: 3px;
   width: 150px;
-    border-radius:5px;
+  border-radius:5px;
   border: hidden;
   margin-inline-start: auto;
-    margin-inline-end: auto;
+  margin-inline-end: auto;
 }
 
 /*────────────────── 
      Scrollbar
 ──────────────────*/
 ::-webkit-Scrollbar{
-    width: 5px; 
+  width: 5px; 
   background: rgba(5,5,5,1);
 }
 ::-webkit-Scrollbar-thumb{
@@ -379,20 +378,19 @@ hr {
 
 @media only screen and (max-width: 1484px) and (min-width: 1214px) {
   .work{
-        padding:20px 20%;
-    }
+    padding:20px 20%;
+  }
 }
 @media only screen and (max-width: 1214px) and (min-width: 1000px) {
   .work{
-        padding:20px 12%;
-    }
+    padding:20px 12%;
+  }
 }
-
 
 @media only screen and (max-width: 500px) {
 
   #home, #projects, #contact{
-        overflow-x: hidden;
+    overflow-x: hidden;
   }
   header{
     background-color: var(--main-header-background);
