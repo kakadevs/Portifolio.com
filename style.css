@@ -11,21 +11,33 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; 
     scroll-behavior: smooth;
 }
 
-main {
 
-    padding: 0;
-    width: 112%;
-    height: 50%;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--main-background);
+    overflow-x: hidden;
+}
 
+main {
+    width: 100%;
+    min-height: 100vh; 
+    background-color: var(--main-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
+
+
 header {
-    margin: 0 auto;
     width: 100%;
     height: 70px;
     display: flex;
@@ -34,21 +46,14 @@ header {
     background: transparent;
     position: fixed;
     top: 0;
-    transition: 0.3s;
+    transition: background 0.3s, opacity 0.3s;
     z-index: 5;
-
-}
-
-.nav-show {
-    opacity: 0;
 }
 
 header:hover {
     opacity: 1;
     background: var(--main-header-background);
-
 }
-
 
 .logo img {
     padding-top: 5px;
@@ -58,65 +63,58 @@ header:hover {
 
 .nav-bar {
     list-style: none;
-    position: relative;
-    display: inline-flex;
+    display: flex;
+    gap: 15px; /* Melhor controle de espaçamento entre itens */
 }
 
 a.nav-link {
-    margin: 2px;
     padding: 5px 10px;
     text-decoration: none;
     color: var(--main-fonts-color);
     font-family: var(--main-font-family);
     cursor: pointer;
     text-transform: uppercase;
+    transition: background 0.3s, color 0.3s;
 }
 
-.active {
-    background: var(--main-decor-color);
-}
-
-.nav-link:hover {
+a.nav-link:hover,
+a.nav-link.active {
     color: #000000;
     background: var(--main-decor-color);
 }
 
-
-
 #home {
-    margin: auto;
+    width: 100%;
     height: 100vh;
     color: var(--main-fonts-color);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    position: relative; /* Para posicionar o filtro corretamente */
 }
 
 #home .filter {
     width: 100%;
     height: 100%;
-    margin: 100px;
     background-size: cover;
     background-position: center;
     position: absolute;
-    top: 0px;
-    bottom: 0;
+    top: 0;
     left: 0;
-    right: 0;
-    opacity: .10;
+    opacity: 0.1;
+    z-index: 0;
 }
 
 .intro {
     text-align: center;
     color: var(--main-fonts-color);
     z-index: 1;
-    margin: auto;
     padding: 20px;
 }
 
 .intro p {
-    margin: 5px;
+    margin: 5px 0;
     font-size: 1.2rem;
     font-family: var(--main-font-family);
     text-align: center;
@@ -124,11 +122,7 @@ a.nav-link {
 
 h3 {
     padding-bottom: 15px;
-    letter-spacing: normal;
     font-family: var(--main-font-family);
-    font-style: normal;
-    font-size: 60px;
-    font-weight: bold;
     font-size: 40px;
     font-weight: bold;
     background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
@@ -139,39 +133,23 @@ h3 {
 }
 
 @keyframes rainbow {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
-
-
 
 .social-media {
     padding: 10px;
     display: flex;
-    position: center;
-    align-items: space-around;
+    align-items: center;
     justify-content: center;
+    gap: 20px; /* Melhor controle de espaçamento */
 }
 
 .social-media a {
-    margin: 10px;
     font-size: 2rem;
-    text-align: center;
-    display: inline-block;
     color: var(--main-fonts-color);
-}
-
-.social-media a i {
-    cursor: pointer;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 .social-media a:hover {
@@ -179,21 +157,18 @@ h3 {
     text-shadow: 0 0 50px var(--main-decor-color);
 }
 
-
-
 #projects {
-    margin-top: 100px;
-    height: 100%;
+    width: 100%;
+    padding: 100px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
     color: var(--main-fonts-color);
 }
 
 #projects h3 {
-    padding-top: 70px;
+    padding-bottom: 20px;
 }
 
 #projects p {
@@ -204,27 +179,28 @@ h3 {
 
 .work {
     display: flex;
-    flex: 1;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    gap: 20px; /* Melhor controle de espaçamento */
 }
 
 .card {
     display: flex;
     flex-direction: column;
-    margin: 20px;
     width: 200px;
     height: 250px;
     border-radius: 12px;
     background: var(--main-decor-color);
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse as bordas */
+    transition: box-shadow 0.3s;
 }
 
 .card img {
     width: 100%;
     height: 70%;
-    border-radius: 10px 10px 0px 0px;
+    object-fit: cover; /* Mantém a proporção da imagem */
 }
 
 .card .work-content {
@@ -234,10 +210,12 @@ h3 {
     color: var(--main-fonts-color);
     font-family: var(--main-font-family);
     cursor: pointer;
+    transition: color 0.3s;
 }
 
 .card a {
     text-decoration: none;
+    color: inherit; /* Mantém a cor do pai */
 }
 
 .card .work-content:hover {
@@ -245,16 +223,12 @@ h3 {
 }
 
 .card:hover {
-    box-shadow: 0 0 1.5rem rgb(255, 255, 255);
+    box-shadow: 0 0 1.5rem rgba(255, 255, 255, 0.7);
 }
 
-
-
-
 #contact {
-    margin: auto;
-    padding-bottom: 20px;
-    height: 600px;
+    width: 100%;
+    padding: 60px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -271,7 +245,7 @@ h3 {
 
 footer {
     width: 100%;
-    height: 100%;
+    padding: 20px 0;
     background-color: var(--main-header-background);
 }
 
@@ -280,9 +254,6 @@ footer {
     font-size: 1.2rem;
     line-height: 40px;
     text-align: center;
-
-    height: 112%;
-    width: 112%;
 }
 
 .copyright a {
@@ -290,42 +261,39 @@ footer {
     font-size: 1rem;
     letter-spacing: 1px;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 .copyright a:hover {
     color: var(--main-decor-color);
 }
 
-
-
 hr {
     background: var(--main-decor-color);
-    margin: 2px;
     height: 3px;
     width: 150px;
+    border: none;
     border-radius: 5px;
-    border: hidden;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
+    margin: 10px auto; /* Centraliza horizontalmente */
 }
 
-
-::-webkit-Scrollbar {
+::-webkit-scrollbar {
     width: 5px;
     background: rgba(5, 5, 5, 1);
 }
 
-::-webkit-Scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: var(--main-decor-color);
     box-shadow: inset 0 0 20px var(--main-decor-color);
 }
 
-::-webkit-Scrollbar-track {
+::-webkit-scrollbar-track {
     margin-top: 80px;
     border-radius: 10px;
 }
 
+/* Hamburger Menu */
 .hamburger {
     display: none;
 }
@@ -353,31 +321,32 @@ hr {
 @keyframes navLinkFade {
     from {
         opacity: 0;
-        transform: translatex(50px);
+        transform: translateX(50px);
     }
-
     to {
         opacity: 1;
-        transform: translatex(0px);
+        transform: translateX(0);
     }
 }
 
+/* Media Queries */
 
+/* Ajuste de padding para diferentes larguras */
 @media only screen and (max-width: 1484px) and (min-width: 1214px) {
     .work {
-        padding: 20px 20%;
+        padding: 20px 10%;
     }
 }
 
 @media only screen and (max-width: 1214px) and (min-width: 1000px) {
     .work {
-        padding: 20px 12%;
+        padding: 20px 8%;
     }
 }
 
-
-@media only screen and (max-width: 112%) {
-
+/* Responsividade para telas menores */
+@media only screen and (max-width: 1120px) { /* Corrigido para usar px em vez de % */
+    main,
     #home,
     #projects,
     #contact {
@@ -390,47 +359,39 @@ hr {
 
     .logo {
         position: absolute;
-        top: 2px;
-        left: 30px;
-    }
-
-    .nav-show {
-        opacity: 1;
+        top: 10px;
+        left: 20px;
     }
 
     .nav-bar {
         position: fixed;
-        top: 0px;
+        top: 0;
         right: 0;
         width: 60%;
         height: 100vh;
-        display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: center;
         background: var(--main-header-background);
-        transform: translatex(100%);
-        transition: transform 0.5s ease-in;
-        z-index: -1;
-    }
-
-    .hamburger {
-        position: absolute;
-        top: 17px;
-        right: 25%;
-        display: block;
-        cursor: pointer;
-        z-index: 5;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 4; /* Ajustado para ficar abaixo do hamburger */
     }
 
     .nav-bar li {
         opacity: 0;
     }
-}
 
+    .hamburger {
+        display: block;
+    }
 
+    .nav-active {
+        transform: translateX(0);
+    }
 
-
-.nav-active {
-    transform: translatex(0%);
+    /* Opcional: Animação para os links da nav */
+    .nav-bar.nav-active li {
+        animation: navLinkFade 0.5s forwards;
+    }
 }
