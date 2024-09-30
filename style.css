@@ -19,7 +19,7 @@ html {
     height: 100%;
     width: 100%;
     color: black;
-    font-size: 20px;
+    font-size: 20px; /* Tamanho da fonte padrão */
     font-family: Arial, sans-serif;
 }
 
@@ -342,43 +342,62 @@ hr {
     }
 }
 
-@media only screen and (max-width: 1484px) and (min-width: 1214px) {
-    .work {
-        padding: 20px 10%;
-    }
-}
-
-@media only screen and (max-width: 1214px) and (min-width: 1000px) {
-    .work {
-        padding: 20px 8%;
-    }
-}
-
-@media only screen and (max-width: 1120px) {
-
-    main,
-    #home,
-    #projects,
-    #contact {
-        overflow-x: hidden;
+/* Media Queries for Responsive Design */
+@media only screen and (max-width: 768px) {
+    html {
+        font-size: 16px; /* Tamanho da fonte ajustado para dispositivos móveis */
     }
 
     header {
-        background-color: var(--main-header-background);
-    }
-
-    .logo {
-        position: absolute;
-        top: 10px;
-        left: 20px;
+        flex-direction: column; /* Muda a direção do header para coluna */
+        align-items: flex-start; /* Alinha os itens à esquerda */
+        padding: 10px; /* Adiciona espaçamento interno */
     }
 
     .nav-bar {
-        position: fixed;
-        top: 0;
+        position: absolute; /* Muda a posição do nav-bar para absoluta */
+        top: 70px; /* Ajusta a posição */
         right: 0;
-        width: 60%;
-        height: 100vh;
+        width: 100%; /* Altera a largura para 100% */
+        height: calc(100vh - 70px); /* Ajusta a altura considerando o header */
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        background-color: var(--main-header-background);
+    }
+
+    .nav-bar.active {
+        transform: translateX(0); /* Mostra o nav-bar ao ativar */
+    }
+
+    .hamburger {
+        display: flex; /* Mostra o menu hamburguer */
         flex-direction: column;
-        align-items: center;
-        justify-content: center
+        cursor: pointer;
+        margin-left: auto; /* Alinha o hamburger à direita */
+    }
+
+    .work {
+        padding: 20px 5%; /* Ajusta o espaçamento das cartas de trabalho */
+    }
+
+    .card {
+        width: 90%; /* Aumenta a largura da carta para caber melhor em telas pequenas */
+        height: auto; /* Permite que a altura da carta se ajuste automaticamente */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    h3 {
+        font-size: 28px; /* Reduz o tamanho do título em telas muito pequenas */
+    }
+
+    .intro p, 
+    #projects p, 
+    #contact p {
+        font-size: 1rem; /* Ajusta o tamanho do texto para melhor legibilidade */
+    }
+
+    .social-media a {
+        font-size: 1.5rem; /* Ajusta o tamanho dos ícones sociais */
+    }
+}
