@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+/* Variáveis de estilo */
 :root {
     --main-background: #273946;
     --main-fonts-color: #ffffff;
@@ -8,6 +9,7 @@
     --main-font-family: 'Poppins', sans-serif;
 }
 
+/* Reset de estilos */
 * {
     margin: 0;
     padding: 0;
@@ -19,14 +21,14 @@ html {
     height: 100%;
     width: 100%;
     color: black;
-    font-size: 20px; /* Tamanho da fonte padrão */
+    font-size: 20px;
     font-family: Arial, sans-serif;
 }
 
 body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Alinha os itens ao topo */
     background-color: var(--main-background);
     overflow-x: hidden;
 }
@@ -38,9 +40,10 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Alinha as seções ao topo */
 }
 
+/* Estilo do cabeçalho */
 header {
     width: 100%;
     height: 70px;
@@ -59,12 +62,14 @@ header:hover {
     background: var(--main-header-background);
 }
 
+/* Estilo do logo */
 .logo img {
     padding-top: 5px;
     height: 50px;
     cursor: pointer;
 }
 
+/* Estilo da barra de navegação */
 .nav-bar {
     list-style: none;
     display: flex;
@@ -87,6 +92,7 @@ a.nav-link.active {
     background: var(--main-decor-color);
 }
 
+/* Estilo das seções */
 #home {
     width: 100%;
     height: 100vh;
@@ -140,11 +146,9 @@ h3 {
     0% {
         background-position: 0% 50%;
     }
-
     50% {
         background-position: 100% 50%;
     }
-
     100% {
         background-position: 0% 50%;
     }
@@ -274,130 +278,4 @@ footer {
     letter-spacing: 1px;
     text-decoration: none;
     transition: color 0.3s;
-}
-
-.copyright a:hover {
-    color: var(--main-decor-color);
-}
-
-hr {
-    background: var(--main-decor-color);
-    height: 3px;
-    width: 150px;
-    border: none;
-    border-radius: 5px;
-    margin: 10px auto;
-}
-
-::-webkit-scrollbar {
-    width: 5px;
-    background: rgba(5, 5, 5, 1);
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: var(--main-decor-color);
-    box-shadow: inset 0 0 20px var(--main-decor-color);
-}
-
-::-webkit-scrollbar-track {
-    margin-top: 80px;
-    border-radius: 10px;
-}
-
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-}
-
-.hamburger div {
-    width: 30px;
-    height: 3px;
-    background: #dbdbdb;
-    margin: 5px;
-    transition: all 0.3s ease;
-}
-
-.toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.toggle .line2 {
-    opacity: 0;
-}
-
-.toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-@keyframes navLinkFade {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Media Queries for Responsive Design */
-@media only screen and (max-width: 768px) {
-    html {
-        font-size: 16px; /* Tamanho da fonte ajustado para dispositivos móveis */
-    }
-
-    header {
-        flex-direction: column; /* Muda a direção do header para coluna */
-        align-items: flex-start; /* Alinha os itens à esquerda */
-        padding: 10px; /* Adiciona espaçamento interno */
-    }
-
-    .nav-bar {
-        position: absolute; /* Muda a posição do nav-bar para absoluta */
-        top: 70px; /* Ajusta a posição */
-        right: 0;
-        width: 100%; /* Altera a largura para 100% */
-        height: calc(100vh - 70px); /* Ajusta a altura considerando o header */
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        background-color: var(--main-header-background);
-    }
-
-    .nav-bar.active {
-        transform: translateX(0); /* Mostra o nav-bar ao ativar */
-    }
-
-    .hamburger {
-        display: flex; /* Mostra o menu hamburguer */
-        flex-direction: column;
-        cursor: pointer;
-        margin-left: auto; /* Alinha o hamburger à direita */
-    }
-
-    .work {
-        padding: 20px 5%; /* Ajusta o espaçamento das cartas de trabalho */
-    }
-
-    .card {
-        width: 90%; /* Aumenta a largura da carta para caber melhor em telas pequenas */
-        height: auto; /* Permite que a altura da carta se ajuste automaticamente */
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    h3 {
-        font-size: 28px; /* Reduz o tamanho do título em telas muito pequenas */
-    }
-
-    .intro p, 
-    #projects p, 
-    #contact p {
-        font-size: 1rem; /* Ajusta o tamanho do texto para melhor legibilidade */
-    }
-
-    .social-media a {
-        font-size: 1.5rem; /* Ajusta o tamanho dos ícones sociais */
-    }
 }
