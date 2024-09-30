@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
-/* Variáveis de estilo */
 :root {
     --main-background: #273946;
     --main-fonts-color: #ffffff;
@@ -9,7 +8,6 @@
     --main-font-family: 'Poppins', sans-serif;
 }
 
-/* Reset de estilos */
 * {
     margin: 0;
     padding: 0;
@@ -28,7 +26,7 @@ html {
 body {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Alinha os itens ao topo */
+    align-items: flex-start;
     background-color: var(--main-background);
     overflow-x: hidden;
 }
@@ -40,36 +38,28 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Alinha as seções ao topo */
+    justify-content: flex-start;
 }
 
-/* Estilo do cabeçalho */
 header {
     width: 100%;
     height: 70px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    background: transparent;
+    justify-content: end;
+    background-color: transparent;
     position: fixed;
     top: 0;
-    transition: background 0.3s, opacity 0.3s;
     z-index: 5;
+    color: white;
+    padding: 10px 0;
+    transition: background-color 0.3s ease;
 }
 
 header:hover {
-    opacity: 1;
-    background: var(--main-header-background);
+    background-color: #4b5c68;;
 }
 
-/* Estilo do logo */
-.logo img {
-    padding-top: 5px;
-    height: 50px;
-    cursor: pointer;
-}
-
-/* Estilo da barra de navegação */
 .nav-bar {
     list-style: none;
     display: flex;
@@ -84,15 +74,34 @@ a.nav-link {
     cursor: pointer;
     text-transform: uppercase;
     transition: background 0.3s, color 0.3s;
+    background: transparent;
 }
 
-a.nav-link:hover,
-a.nav-link.active {
-    color: #000000;
-    background: var(--main-decor-color);
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
 }
 
-/* Estilo das seções */
+nav ul li a:hover {
+    background-color: #89aac0;
+    color: white;
+}
+
+#home,
+#projects,
+#contact {
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+#home:hover,
+#projects:hover,
+#contact:hover {
+    background-color: var(--main-header-background);
+}
+
 #home {
     width: 100%;
     height: 100vh;
@@ -146,9 +155,11 @@ h3 {
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -278,4 +289,112 @@ footer {
     letter-spacing: 1px;
     text-decoration: none;
     transition: color 0.3s;
+}
+
+.copyright a:hover {
+    color: var(--main-decor-color);
+}
+
+hr {
+    background: var(--main-decor-color);
+    height: 3px;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background: rgba(5, 5, 5, 1);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--main-decor-color);
+    box-shadow: inset 0 0 20px var(--main-decor-color);
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 80px;
+    border-radius: 10px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background: #dbdbdb;
+    margin: 5px;
+    transition: all 0.5s hard;
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media only screen and (max-width: 1484px) and (min-width: 1214px) {
+    .work {
+        padding: 20px 10%;
+    }
+}
+
+@media only screen and (max-width: 1214px) and (min-width: 1000px) {
+    .work {
+        padding: 20px 8%;
+    }
+}
+
+@media only screen and (max-width: 1120px) {
+    main,
+    #home,
+    #projects,
+    #contact {
+        overflow-x: hidden;
+    }
+
+    header {
+        background-color: var(--main-header-background);
+    }
+
+    .logo {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+    }
+
+    .nav-bar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
